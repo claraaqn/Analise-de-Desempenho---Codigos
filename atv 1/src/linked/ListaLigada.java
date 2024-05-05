@@ -110,6 +110,7 @@ public class ListaLigada{
             if (count == buscaIndice) {
                 n.setProximo(in.getProximo());
                 in.setProximo(n);
+                break;
             } else {
                 count += 1;
                 in = in.getProximo();
@@ -207,4 +208,21 @@ public class ListaLigada{
         }
         return count;
     }
+
+    @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder("[");
+    No atual = cabeca;
+
+    while (atual != null) {
+      sb.append(atual.getValor());
+      if (atual.getProximo() != null) {
+        sb.append(", ");
+      }
+      atual = atual.getProximo();
+    }
+
+    sb.append("]");
+    return sb.toString();
+  }
 }
